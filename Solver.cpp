@@ -96,11 +96,16 @@ int Solver::sumaPeso(){
 */
 int Solver::solve(){
     int a, b, k;
+    float b2;
 
     // Cuota superior
     a = this->heuristica();
     // Cuota inferior
-    b = this->sumaPeso() / this->capacidad;
+    b2 = this->sumaPeso() / this->capacidad;
+
+    if(b2 > (int)b2){
+        b = (int)b2 + 1;
+    }
 
     std::cout << "Cuota superior: " << a << std::endl;
     std::cout << "Cuota inferior: " << b << std::endl;
